@@ -26,45 +26,59 @@ const Index = () => {
   const products: Product[] = [
     {
       id: 1,
-      name: 'Стильная толстовка',
+      name: 'Стильная толстовка черная',
       price: 3990,
-      image: '/img/9d020751-e46c-4dab-85ca-25fc8ba531ab.jpg',
+      image: '/img/4195f654-3f6b-4ea9-be22-b928cadaa306.jpg',
       category: 'hoodie'
     },
     {
       id: 2,
-      name: 'Классическая футболка',
+      name: 'Классическая белая футболка',
       price: 1590,
-      image: '/img/140d2968-85d1-427e-9c87-c554033fab58.jpg',
+      image: '/img/8ffa1c73-b3be-4006-9db7-7cf9646eea0b.jpg',
       category: 'tshirt'
     },
     {
       id: 3,
-      name: 'Уютный свитшот',
+      name: 'Уютный свитшот бежевый',
       price: 2990,
-      image: '/img/9d020751-e46c-4dab-85ca-25fc8ba531ab.jpg',
+      image: '/img/4195f654-3f6b-4ea9-be22-b928cadaa306.jpg',
       category: 'sweatshirt'
     },
     {
       id: 4,
-      name: 'Модная сумка',
+      name: 'Модная сумка-тоут',
       price: 2490,
-      image: '/img/fe33dbc7-83dc-4d1e-8d4b-f729c11657fb.jpg',
+      image: '/img/0a6f37b6-77e4-46c5-841d-c2a3ee8d1ce6.jpg',
       category: 'bag'
     },
     {
       id: 5,
-      name: 'Винтажная футболка',
+      name: 'Винтажная футболка premium',
       price: 1790,
-      image: '/img/140d2968-85d1-427e-9c87-c554033fab58.jpg',
+      image: '/img/8ffa1c73-b3be-4006-9db7-7cf9646eea0b.jpg',
       category: 'tshirt'
     },
     {
       id: 6,
-      name: 'Спортивная толстовка',
+      name: 'Спортивная толстовка pro',
       price: 4490,
-      image: '/img/9d020751-e46c-4dab-85ca-25fc8ba531ab.jpg',
+      image: '/img/4195f654-3f6b-4ea9-be22-b928cadaa306.jpg',
       category: 'hoodie'
+    },
+    {
+      id: 7,
+      name: 'Базовая футболка oversized',
+      price: 1390,
+      image: '/img/8ffa1c73-b3be-4006-9db7-7cf9646eea0b.jpg',
+      category: 'tshirt'
+    },
+    {
+      id: 8,
+      name: 'Эко-сумка из хлопка',
+      price: 1990,
+      image: '/img/0a6f37b6-77e4-46c5-841d-c2a3ee8d1ce6.jpg',
+      category: 'bag'
     }
   ];
 
