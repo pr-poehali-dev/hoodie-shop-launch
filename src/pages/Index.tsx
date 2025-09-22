@@ -21,6 +21,7 @@ interface CartItem extends Product {
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [activeSection, setActiveSection] = useState('home');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const products: Product[] = [
     {
@@ -89,6 +90,14 @@ const Index = () => {
     return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
 
+  const categories = [
+    { id: 'all', label: 'Все товары', icon: 'Grid3x3' },
+    { id: 'hoodie', label: 'Толстовки', icon: 'ShirtIcon' },
+    { id: 'tshirt', label: 'Футболки', icon: 'Shirt' },
+    { id: 'sweatshirt', label: 'Свитшоты', icon: 'ShirtIcon' },
+    { id: 'bag', label: 'Сумки', icon: 'ShoppingBag' }
+  ];
+
   const navigation = [
     { id: 'home', label: 'Главная', icon: 'Home' },
     { id: 'catalog', label: 'Каталог', icon: 'Grid3x3' },
@@ -96,6 +105,13 @@ const Index = () => {
     { id: 'delivery', label: 'Доставка', icon: 'Truck' },
     { id: 'contacts', label: 'Контакты', icon: 'Phone' }
   ];
+
+  const getFilteredProducts = () => {
+    if (selectedCategory === 'all') {
+      return products;
+    }
+    return products.filter(product => product.category === selectedCategory);
+  };
 
   const renderHome = () => (
     <div className="space-y-16">
@@ -164,8 +180,27 @@ const Index = () => {
         <h2 className="text-4xl font-bold text-center text-navy mb-12">
           Каталог товаров
         </h2>
+        
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category.id}
+              variant={selectedCategory === category.id ? "default" : "outline"}
+              className={`flex items-center space-x-2 ${
+                selectedCategory === category.id
+                  ? 'bg-coral hover:bg-coral/90 text-white'
+                  : 'border-coral text-coral hover:bg-coral/10'
+              }`}
+              onClick={() => setSelectedCategory(category.id)}
+            >
+              <Icon name={category.icon as any} size={16} />
+              <span>{category.label}</span>
+            </Button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {getFilteredProducts().map((product) => (
             <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-0 shadow-lg">
               <div className="relative overflow-hidden rounded-t-lg">
                 <img
